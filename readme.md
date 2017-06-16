@@ -269,6 +269,11 @@ need to update anything else in the database.
 * `remove_opt_out_dismissals( $user_id, array $notice_ids )` To remove specific opt out dismissals from a user or all users.
 * `remove_all_opt_out_dismissals( $user_id )` To remove all opt out dismissals from a user or all users.
 
+## Contact
+
+If you have any questions or suggestions, you can either [file an issue](https://github.com/jlad26/admin-notice-manager/issues)
+or you can contact me [here](http://www.sneezingtrees.com/contact/). I'll do my best to get back to you!
+
 ## Licence
 
 [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.txt)
