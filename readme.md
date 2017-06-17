@@ -17,6 +17,10 @@ Notices are also either **added** or **opt out**:
 
 ## Getting started
 
+#### Download
+
+Download the latest stable version from ![Releases](https://github.com/jlad26/admin-notice-manager/releases).
+
 #### Installation
 
 1. Copy the folder admin-notice-manager into the top-level folder of your plugin.
@@ -40,7 +44,7 @@ you need to amend the path in the the `require_once` line of code accordingly.
 
 #### Handling plugin uninstall
 
-Assuming your plugin uses the [preferred method](https://wptavern.com/plugin-developers-use-uninstall-php-please) of the uninstall.php file,
+Assuming your plugin uses the ![preferred method](https://wptavern.com/plugin-developers-use-uninstall-php-please) of the uninstall.php file,
 then you should include the following code in that file (with Foo_Bar_ replaced accordingly):
 
 ```php
@@ -272,7 +276,7 @@ need to update anything else in the database.
 ## Contact
 
 If you have any questions or suggestions, you can either [file an issue](https://github.com/jlad26/admin-notice-manager/issues)
-or you can contact me [here](http://www.sneezingtrees.com/contact/). I'll do my best to get back to you!
+or you can contact me ![here](http://www.sneezingtrees.com/contact/). I'll do my best to get back to you!
 
 ## Licence
 
