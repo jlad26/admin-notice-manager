@@ -192,7 +192,7 @@ class HEC_Admin_Notice_Manager {
 	 *													For example: array( 3, 'administrator', 55, 153, 'editors' ) will set the message
 	 *													for users with ids of 3, 55 and 153, and for all users that are administrators or editors.
 	 *													Default is current user id.										
-	 * 		@type	array|string	$screen_ids			Array of screen ids on which message should be displayed.
+	 * 		@type	array			$screen_ids			Array of screen ids on which message should be displayed.
 	 * 													Set to empty array for all screens. If left unset the current screen is set if possible,
 	 *													it is recommended to explicitly specify the desired screen rather than leaving unset.
 	 *													If during testing the notice is set on a screen that is then not viewed because of a redirect

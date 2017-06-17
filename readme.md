@@ -74,7 +74,7 @@ developer gets fiddly too.
 * **user_ids** *array* Array of user ids or user roles for whom message should be displayed. For example:
 `array( 3, 'administrator', 55, 153, 'editors' )` will set the message for users with ids of 3, 55 and 153, and for all users that are
 administrators or editors. Default is current user id.
-* **screen_ids** *array|string* Array of screen ids on which message should be displayed. Set to empty array for all screens. If left unset
+* **screen_ids** *array* Array of screen ids on which message should be displayed. Set to empty array for all screens. If left unset
 the current screen is set if possible, but it is recommended to specify the desired screen instead. If during testing the notice is
 set on a screen that is then not viewed because of a redirect (e.g. options), changing the screen in the notice args will have no effect
 because the notice has been stored in the db and will not be updated. Default is empty array (all screens ) for one-time messages,
