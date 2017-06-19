@@ -24,7 +24,7 @@ class HEC_Admin_Notice_Manager {
 	private static $version;
 	
 	/**
-	 * The url to the js directory.
+	 * The url to the assets directory.
 	 *
 	 * @access		private
 	 * @var			string	$url_to_assets_dir		Url to the directory where the files admin-notice-manager.js and
