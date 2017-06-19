@@ -527,6 +527,7 @@ class HEC_Admin_Notice_Manager {
 	/**
 	 * Returns html for a dismiss on redirect link.
 	 *
+	 * @module	Optional helper methods
 	 * @param	array	$args {
 	 * 		@type		string		$link			Html to display as link.
 	 * 		@type		string		$redirect_url	Redirect url. Set as empty string for no redirect. Default is no redirect.
@@ -557,6 +558,7 @@ class HEC_Admin_Notice_Manager {
 	/**
 	 * Returns html for button that triggers a specific action hook.
 	 *
+	 * @module	Optional helper methods
 	 * @param	array	$args {
 	 * 		@type		string		$content		Html to display as button / link content.
 	 * 		@type		string		$event			String to identify dismiss event. The action triggered will be
@@ -1115,6 +1117,7 @@ class HEC_Admin_Notice_Manager {
 	/**
 	 * Delete all notices from a user.
 	 *
+	 * @module	Optional helper methods
 	 * @param		int			$user_id		User id from whom notices should be deleted.
 	 */
 	public static function delete_added_user_notices( $user_id ) {
@@ -1141,6 +1144,7 @@ class HEC_Admin_Notice_Manager {
 	/**
 	 * Remove opt out dismissals from a user.
 	 *
+	 * @module	Optional helper methods
 	 * @param		int		$user_id		User ID from whom to remove dismissals. Set to 0 for all users.
 	 * @param		array	$notice_ids		Array of notice ids to remove
 	 */
