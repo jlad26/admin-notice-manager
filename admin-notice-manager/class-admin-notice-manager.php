@@ -933,6 +933,7 @@ class Plugin_Admin_Notice_Manager {
 
 		}
 		
+		// Redirect if this is not an ajax request.
 		if ( isset( $_POST['anm-no-js'] ) ) {
 			
 			// If a redirect has been set, use it.
