@@ -225,7 +225,7 @@ in the notice that dismisses the notice on redirect.
 
 `$args` is an array with the following keys:
 * **content** *string* Html to display as link.
-* **event** *string* Redirect url. Set as empty string for no redirect. Default is no redirect.
+* **redirect** *string* Redirect url. Set as empty string for no redirect. Default is no redirect.
 * **new_tab** *bool* If true, link is opened in a new window / tab (equivalent to target="_blank". Default is false. Only works on browsers with js enabled.
 * **classes** *array* Array of classes for the button. Default is `array( 'anm-link' )` which styles as a link.
 
