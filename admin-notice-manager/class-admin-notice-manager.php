@@ -529,9 +529,10 @@ class Plugin_Admin_Notice_Manager {
 	 *
 	 * @module	Optional helper methods
 	 * @param	array	$args {
-	 * 		@type		string		$link			Html to display as link.
-	 * 		@type		string		$redirect_url	Redirect url. Set as empty string for no redirect. Default is no redirect.
+	 * 		@type		string		$content		Html to display as link.
+	 * 		@type		string		$redirect		Redirect url. Set as empty string for no redirect. Default is no redirect.
 	 * 		@type		array		$classes		Array of classes for the button. Default is array( anm-link ) which styles as a link.
+	 * @return			string						Button html (styled by default as link)
 	 * }
 	 */
 	public static function dismiss_on_redirect_link( array $args ) {
