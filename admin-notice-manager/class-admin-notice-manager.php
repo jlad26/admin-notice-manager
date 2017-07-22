@@ -584,7 +584,7 @@ class Plugin_Admin_Notice_Manager {
 		}
 		$classes = implode( ' ', $classes );
 		
-		// Add button with value of redirect url.
+		// Add button with value of event.
 		return '<button type="submit" class="' . $classes . '" name="anm-event" value="' . esc_attr( $args['event'] ) . '">' . $args['content'] . '</button>';
 		
 	}
