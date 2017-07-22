@@ -529,7 +529,7 @@ class Plugin_Admin_Notice_Manager {
 	 * @param	array	$args {
 	 * 		@type		string		$content		Html to display as link.
 	 * 		@type		string		$redirect		Redirect url. Set as empty string for no redirect. Default is no redirect.
-	 * 		@type		string		$new_tab		If true, link is opened in a new window / tab (equivalent to target="_blank". Default is _self.
+	 * 		@type		string		$new_tab		If true, link is opened in a new window / tab (equivalent to target="_blank". Default is false.
 	*												Only works on browsers with js.
 	 * 		@type		array		$classes		Array of classes for the button. Default is array( anm-link ) which styles as a link.
 	 * }
