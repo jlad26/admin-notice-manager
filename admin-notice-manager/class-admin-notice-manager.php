@@ -927,10 +927,12 @@ class Plugin_Admin_Notice_Manager {
 						self::delete_added_notice_from_all_users( $notice_id );
 					}
 					
-				}
+				} else {
 				
-				// Dismiss opt out notice if required.
-				self::dismiss_opt_out_notice( $notice_id, $user->ID, $event );
+					// Dismiss opt out notice if required.
+					self::dismiss_opt_out_notice( $notice_id, $user->ID, $event );
+					
+				}
 				
 				// Redirect if this is not an ajax request.
 				if ( isset( $_POST['anm-no-js'] ) ) {
