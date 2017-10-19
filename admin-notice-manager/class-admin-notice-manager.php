@@ -4,22 +4,30 @@
  * A class to handle the setting, display and removal of admin notices in Wordpress plugins.
  *
  */
-class Plugin_Admin_Notice_Manager {
+class Bulk_Attachment_Download_Admin_Notice_Manager {
 	
 	/**
 	 * The unique identifier of this admin notice manager.
 	 *
 	 * @access		private
-	 * @var			string	$plugin_name		The string used to uniquely identify this manager.
-	 * 											Used as a prefix to keys when storing in usermeta.
+	 * @var			string	$manager_id		The string used to uniquely identify this manager.
+	 * 										Used as a prefix to keys when storing in usermeta.
 	 */
 	private static $manager_id;
+	
+	/**
+	 * The name of the parent plugin.
+	 *
+	 * @access	private
+	 * @var		string	$plugin_name	The name of the parent plugin (for displaying error messages only).
+	 */
+	private static $plugin_name;
 	
 	/**
 	 * The version of this plugin.
 	 *
 	 * @access	private
-	 * @var		string	$version	The current version of this plugin.
+	 * @var		string	$version	The current version of the parent plugin.
 	 */
 	private static $version;
 	
@@ -77,7 +85,8 @@ class Plugin_Admin_Notice_Manager {
 	 * 
 	 * @param	array			$args {
 	 *		@type	string			$manager_id				Unique id for this manager. Used as a prefix for database keys.
-	 *		@type	string			$url_to_assets_dir			Path to directory containing admin-notice-manager.js.
+	 *		@type	string			$plugin_name			Name of the parent plugin.
+	 *		@type	string			$url_to_assets_dir		Path to directory containing admin-notice-manager.js.
 	 *		@type	string			$text_domain			Text domain for translation.
 	 *		@type	string			$version				Plugin version.
 	 *		@type	array			$opt_out_notices		Array of array of opt out notices with keys of notice id
@@ -90,7 +99,8 @@ class Plugin_Admin_Notice_Manager {
 			
 			$defaults = array(
 				'manager_id'		=>	'anm',
-				'url_to_assets_dir'		=>	'',
+				'plugin_name'		=>	'Unnamed plugin',
+				'url_to_assets_dir'	=>	'',
 				'text_domain'		=>	'default',
 				'version'			=>	'',
 				'opt_out_notices'	=> array()
@@ -102,6 +112,7 @@ class Plugin_Admin_Notice_Manager {
 			self::$manager_id = empty( $args['manager_id'] ) ? 'anm' : $args['manager_id'];
 			self::$text_domain = $args['text_domain'];
 			self::$version = $args['version'];
+			self::$plugin_name = $args['plugin_name'];
 
 			// Add hooks, but only if we are not uninstalling the plugin.
 			if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
@@ -215,7 +226,8 @@ class Plugin_Admin_Notice_Manager {
 		$notice = self::parse_notice_args( $notice );
 		
 		if ( is_wp_error( $notice ) ) {
-			return $notice;
+			self::add_error_notice( $notice );
+			return false;
 		}
 		
 		// Convert any roles to user ids and unset notice parameter.
@@ -252,6 +264,30 @@ class Plugin_Admin_Notice_Manager {
 	}
 	
 	/**
+	 * Add an error notice.
+	 *
+	 * @param	WP_Error	$error_object 	 WP_Error object
+	 */
+	private static function add_error_notice( $errors ) {
+		$messages = $errors->get_error_messages();
+		$data = $errors->get_error_data( 'notice_data_provided_for_validation' );
+		$error_message = sprintf(
+			__( 'Please communicate this error message to the developer of %s through the WP support forums.', self::$text_domain ),
+			self::$plugin_name
+		) . '<br />';
+		$error_message .= '<strong>' . sprintf( __( '%s Admin Notice Manager errors:', self::$text_domain ), self::$plugin_name ) . '</strong><br />';
+		$error_message .= implode( '<br />', $messages ) . '<br />';
+		$error_message .= '<strong>' . __( 'Notice data:', self::$text_domain ) . '</strong><br />' . print_r( $data, true );
+		
+		$notice_args = array(
+			'message'		=>	$error_message,
+			'screen_ids'	=>	array()
+		);
+		self::add_notice( $notice_args );
+		
+	}
+	
+	/**
 	 * Add a new opt out notice.
 	 *
 	 * @param	array				$notice 			Identical key-value pairs for @see add_notice, except for the following:
@@ -279,7 +315,8 @@ class Plugin_Admin_Notice_Manager {
 		$notice = self::parse_notice_args( $notice );
 		
 		if ( is_wp_error( $notice ) ) {
-			return $notice;
+			self::add_error_notice( $notice );
+			return false;
 		}
 		
 		$notice_id = $notice['id'];
@@ -645,7 +682,8 @@ class Plugin_Admin_Notice_Manager {
 		$new_notice = self::parse_notice_args( $new_notice );
 		
 		if ( is_wp_error( $new_notice ) ) {
-			return $new_notice;
+			self::add_error_notice( $new_notice );
+			return false;
 		}
 		
 		$new_notice_id = $new_notice['id'];
