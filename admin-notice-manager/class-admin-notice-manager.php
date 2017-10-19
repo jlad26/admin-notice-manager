@@ -4,7 +4,7 @@
  * A class to handle the setting, display and removal of admin notices in Wordpress plugins.
  *
  */
-class Bulk_Attachment_Download_Admin_Notice_Manager {
+class Plugin_Admin_Notice_Manager {
 	
 	/**
 	 * The unique identifier of this admin notice manager.
