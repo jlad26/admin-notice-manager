@@ -458,7 +458,8 @@ class Plugin_Admin_Notice_Manager {
 		}
 
 		// Give the result.
-		if ( ! empty( $errors->get_error_codes() ) ) {
+		$error_codes = $errors->get_error_codes();
+		if ( ! empty( $error_codes ) ) {
 			$errors->add_data( $notice, 'notice_data_provided_for_validation' );
 			return $errors;
 		} else {
