@@ -64,11 +64,13 @@
 		$( 'body' ).on( 'submit', '.anm-form', function(evt) {
 			evt.preventDefault();
 			if ( redirectUrl.length > 0 ) {
-				if ( redirectNewTab ) {
-					window.open( redirectUrl, '_blank' );
-				} else {
-					window.location.href = redirectUrl;
-				}
+				setTimeout( function() {
+					if ( redirectNewTab ) {
+						window.open( redirectUrl, '_blank' );
+					} else {
+						window.location.href = redirectUrl;
+					}
+				}, 100 );
 			}
 			return false;
 		});
