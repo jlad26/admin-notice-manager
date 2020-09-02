@@ -102,7 +102,7 @@ Foo_Bar_Admin_Notice_Manager::add_opt_out_notice( $args );
 * **dismiss_all** Forced to always be false. For dismiss_all effect, make sure that notice is not set in the first place (e.g., by setting a value
 in options table).
 
-It's probably a good idea to hook the addition of opt out notices to the `admin_init` hook so the plugin doesn't need check whether to display
+It's probably a good idea to hook the addition of opt out notices to the `admin_init` hook so the plugin doesn't need to check whether to display
 the notice on the front end. Something like this:
 
 ```php

@@ -915,7 +915,7 @@ class Plugin_Admin_Notice_Manager {
 				<?php wp_nonce_field( self::$manager_id . '_dismiss_admin_notice', 'nonce-anm-' . self::$manager_id . '-' . $notice['id'] );
 				}
 				if ( $notice['no_js_dismissable'] ) {
-				?><noscript><table><tr><td style="width: 100%"></noscript><?php
+				?><noscript><table style="border-collapse: collapse"><tr><td></noscript><?php
 				}
 				echo $notice['message'];
 				if ( $notice['no_js_dismissable'] ) {
