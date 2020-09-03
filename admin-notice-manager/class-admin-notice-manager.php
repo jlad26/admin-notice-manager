@@ -4,7 +4,7 @@
  * A class to handle the setting, display and removal of admin notices in Wordpress plugins.
  *
  */
-class Plugin_Admin_Notice_Manager {
+class Bulk_Attachment_Download_Admin_Notice_Manager {
 	
 	/**
 	 * The unique identifier of this admin notice manager.
@@ -161,6 +161,7 @@ class Plugin_Admin_Notice_Manager {
 			if ( 'anm' == self::$manager_id || ( ! is_string( self::$manager_id ) && ! is_int( self::$manager_id ) ) ) {
 				$notice = array(
 					'id'			=>	'anm_initialization_warning',
+					/* translators: Class name */
 					'message'		=>	sprintf( __( 'Admin Notice Manager: Unique identifier not set, so conflicts may occur. Please set a valid unique identifer when the %s class is initialized. This must be either a string or an integer.', self::$text_domain ), get_called_class() ),
 					'type'			=>	'error',
 					'user_ids'		=>	array( 'administrator' ),
@@ -272,9 +273,11 @@ class Plugin_Admin_Notice_Manager {
 		$messages = $errors->get_error_messages();
 		$data = $errors->get_error_data( 'notice_data_provided_for_validation' );
 		$error_message = sprintf(
+			/* translators: Plugin name */
 			__( 'Please communicate this error message to the developer of %s through the WP support forums.', self::$text_domain ),
 			self::$plugin_name
 		) . '<br />';
+		/* translators: Plugin name */
 		$error_message .= '<strong>' . sprintf( __( '%s Admin Notice Manager errors:', self::$text_domain ), self::$plugin_name ) . '</strong><br />';
 		$error_message .= implode( '<br />', $messages ) . '<br />';
 		$error_message .= '<strong>' . __( 'Notice data:', self::$text_domain ) . '</strong><br />' . print_r( $data, true );
@@ -484,6 +487,7 @@ class Plugin_Admin_Notice_Manager {
 					case 'dismissable' :
 					case 'dismiss_all' :
 						if ( ! is_bool( $value ) ) {
+							/* translators: Notice argument key - one of persistent, dismissable, or dismiss_all */
 							$errors->add( 'type', sprintf( __( 'Invalid value for %s - must be boolean.', $domain ), $key ) );
 						}
 						break;
