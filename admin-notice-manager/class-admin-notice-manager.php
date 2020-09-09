@@ -454,7 +454,7 @@ class Bulk_Attachment_Download_Admin_Notice_Manager {
 						
 					case 'screen_ids' :
 						$error_message = sprintf(
-							__( 'Invalid screen ids - must either be an empty array, or an array of strings.', $domain ),
+							__( 'Invalid screen ids - must either be an empty array or an array of strings.', $domain ),
 							'current'
 						);
 						if ( ! is_array( $value ) ) {
