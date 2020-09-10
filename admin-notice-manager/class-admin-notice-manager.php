@@ -203,12 +203,12 @@ class Bulk_Attachment_Download_Admin_Notice_Manager {
 	 *													for users with ids of 3, 55 and 153, and for all users that are administrators or editors.
 	 *													Default is current user id.										
 	 * 		@type	array			$screen_ids			Array of screen ids on which message should be displayed.
-	 * 													Set to empty array for all screens. If left unset the current screen is set if possible,
-	 *													it is recommended to explicitly specify the desired screen rather than leaving unset.
-	 *													If during testing the notice is set on a screen that is then not viewed because of a redirect
-	 *													(e.g. options), changing the screen in the notice args will have no effect because the notice
-	 *													has been stored in the db and will not be updated.
-	 *													Default is empty array (all screens ) for one-time messages, and current screen for persistent.
+	 * 													Set to empty array for all screens. If during testing the notice is set on a screen
+	 * 													that is then not viewed because of a redirect (e.g. options),
+	 * 													changing the screen in the notice args will have no effect because the notice
+	 *													has been stored in the db and will not be updated. Default is empty array (all screens )
+	 * 													for one-time messages, and current screen for persistent. Note that if current screen is
+	 *													desired, it is recommended where possible to set the screen id explicitly.
 	 * 		@type	array			$post_ids			Array of post ids on which message should be displayed. Empty array means all posts.
 	 *													Default is all posts.
 	 * 		@type	string			$persistent			True for persistent, false for one-time. Default is false.

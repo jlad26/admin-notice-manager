@@ -74,11 +74,10 @@ developer gets fiddly too.
 * **user_ids** *array* Array of user ids or user roles for whom message should be displayed. For example:
 `array( 3, 'administrator', 55, 153, 'editors' )` will set the message for users with ids of 3, 55 and 153, and for all users that are
 administrators or editors. Default is current user id.
-* **screen_ids** *array* Array of screen ids on which message should be displayed. Set to empty array for all screens. If left unset
-the current screen is set if possible, but it is recommended to specify the desired screen instead. If during testing the notice is
-set on a screen that is then not viewed because of a redirect (e.g. options), changing the screen in the notice args will have no effect
-because the notice has been stored in the db and will not be updated. Default is empty array (all screens ) for one-time messages,
-and current screen for persistent.
+* **screen_ids** *array* Array of screen ids on which message should be displayed. Set to empty array for all screens. If during testing
+the notice is set on a screen that is then not viewed because of a redirect (e.g. options), changing the screen in the notice args will
+have no effect because the notice has been stored in the db and will not be updated. Default is empty array (all screens ) for one-time messages,
+and current screen for persistent. Note that if current screen is desired, it is recommended where possible to set the screen id explicitly.
 * **post_ids** *array* Array of post ids on which message should be displayed. Empty array means all posts. Default is all posts.
 * **persistent** *string* True for persistent, false for one-time. Default is false.
 * **dismissable** *bool* Whether notice is dismissable. Default is true.
