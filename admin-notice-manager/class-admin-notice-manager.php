@@ -128,8 +128,11 @@ class Bulk_Attachment_Download_Admin_Notice_Manager {
 				add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
 				add_action( 'wp_ajax_' . self::$manager_id . '_dismiss_admin_notice', array( __CLASS__, 'dismiss_notice' ) );
 
-				// Display error message if not initialized correctly
+				// Display error message if not initialized correctly.
 				add_action( 'admin_init', array( __CLASS__, 'check_manager_id' ) );
+				
+				// Filter usermeta so that a null result is returned as an empty array instead of a string.
+				add_filter( 'default_user_metadata', array( __CLASS__, 'convert_empty_usermeta_string_to_array' ), 10, 5 );
 				
 			}
 
@@ -188,6 +191,20 @@ class Bulk_Attachment_Download_Admin_Notice_Manager {
 	}
 	
 	/**
+	 * Filter usermeta so that a null result for any of our usermeta entries is returned as an empty array instead of a string.
+	 *
+	 * @hooked default_user_metadata
+	 */
+	public static function convert_empty_usermeta_string_to_array( $value, $object_id, $meta_key, $single, $meta_type ) {
+		if ( '' === $value ) {
+			if ( in_array( $meta_key, array( self::$manager_id . '_admin_notices', self::$manager_id . '_opt_out_notice_dismissals' ) ) ) {
+				$value = array();
+			}
+		}
+		return $value;
+	}
+	
+	/**
 	 * Add a new notice.
 	 *
 	 * @param	array	$notice {
@@ -225,7 +242,7 @@ class Bulk_Attachment_Download_Admin_Notice_Manager {
 	public static function add_notice( array $notice ) {
 		
 		$notice = self::parse_notice_args( $notice );
-		
+
 		if ( is_wp_error( $notice ) ) {
 			self::add_error_notice( $notice );
 			return false;
@@ -243,7 +260,7 @@ class Bulk_Attachment_Download_Admin_Notice_Manager {
 		// Add new notices to existing notices.
 		$new_notices = array();
 		foreach ( $user_ids as $user_id ) {
-			
+
 			// Load user's current notices if not already set.
 			if ( ! isset( $notices[ $user_id ] ) ) {
 				$notices[ $user_id ] = get_user_meta( $user_id, self::$manager_id . '_admin_notices', true );
@@ -971,7 +988,7 @@ class Bulk_Attachment_Download_Admin_Notice_Manager {
 					}
 					
 				} else {
-				
+					
 					// Dismiss opt out notice if required.
 					self::dismiss_opt_out_notice( $notice_id, $user->ID, $event );
 					
