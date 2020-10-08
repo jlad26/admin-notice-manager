@@ -1,6 +1,6 @@
-# Admin Notice Manager for Wordpress plugins
+# Admin Notice Manager for WordPress plugins
 
-A utility class that allows easy setting and management of admin notices in Wordpress plugins.
+A utility class that allows easy setting and management of admin notices in WordPress plugins.
 Various types of admin notices are available, including dismissable one-off or persistent messages.
 Graceful fallback for non-JS.
 
