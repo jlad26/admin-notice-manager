@@ -19,7 +19,7 @@ Notices are also either **added** or **opt out**:
 
 #### Download
 
-Download the latest stable version from ![Releases](https://github.com/jlad26/admin-notice-manager/releases).
+Download the latest stable version from [Releases](https://github.com/jlad26/admin-notice-manager/releases).
 
 #### Installation
 
@@ -35,7 +35,7 @@ require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin-notice-manager/clas
 Foo_Bar_Admin_Notice_Manager::init( array(
 	'manager_id'	=>	'your_plugin_name_or_initials',		// Used as a prefix for keys when saving to usermeta.
 	'text_domain'	=>	'your-plugin-text-domain',
-	'version'		=>	'your plugin version e.g., 1.0.0'	// Used when enqueueing styles and script.
+	'version'	=>	'your plugin version e.g., 1.0.0'	// Used when enqueueing styles and script.
 ) );
 ```
 
@@ -44,7 +44,7 @@ you need to amend the path in the the `require_once` line of code accordingly.
 
 #### Handling plugin uninstall
 
-Assuming your plugin uses the ![preferred method](https://wptavern.com/plugin-developers-use-uninstall-php-please) of the uninstall.php file,
+Assuming your plugin uses the [preferred method](https://wptavern.com/plugin-developers-use-uninstall-php-please) of the uninstall.php file,
 then you should include the following code in that file (with Foo_Bar_ replaced accordingly):
 
 ```php
@@ -212,7 +212,7 @@ add_action( 'foo_bar_user_notice_dismissed_settings_guidance_change_some_setting
 
 That creates a notice like this:
 
-![Specific event notice](images/specific-dismiss.png)
+[Specific event notice](images/specific-dismiss.png)
 
 When a user clicks on the 'No thanks!' link or the dismiss icon, the notice is just dismissed. If user clicks on 'change setting', the notice
 is dismissed and the action is fired.
@@ -251,7 +251,7 @@ add_action( 'admin_init', 'foo_bar_add_opt_out_notices' );
 
 That creates a notice like this:
 
-![Notice with redirect link](images/notice-redirect.png)
+[Notice with redirect link](images/notice-redirect.png)
 
 ## Other (potentially) useful methods
 
@@ -276,7 +276,7 @@ need to update anything else in the database.
 ## Contact
 
 If you have any questions or suggestions, you can either [file an issue](https://github.com/jlad26/admin-notice-manager/issues)
-or you can contact me ![here](http://www.sneezingtrees.com/contact/). I'll do my best to get back to you!
+or you can contact me [here](http://www.sneezingtrees.com/contact/). I'll do my best to get back to you!
 
 ## Licence
 
