@@ -216,7 +216,7 @@ class Plugin_Admin_Notice_Manager {
 	 * 		@type	string			$wrap_tag			Tag to wrap message in. Default is 'p'. Set to empty string or false for no wrap.
 	 * 		@type	string			$type				One of 'success', 'error', warning', 'info'. Default is 'error'.
 	 * 		@type	array			$user_ids			Array of user ids or user roles for whom message should be displayed.
-	 *													For example: array( 3, 'administrator', 55, 153, 'editors' ) will set the message
+	 *													For example: array( 3, 'administrator', 55, 153, 'editor' ) will set the message
 	 *													for users with ids of 3, 55 and 153, and for all users that are administrators or editors.
 	 *													Default is current user id.										
 	 * 		@type	array			$screen_ids			Array of screen ids on which message should be displayed.

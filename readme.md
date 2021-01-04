@@ -72,7 +72,7 @@ developer gets fiddly too.
 * **wrap_tag** *string* Tag to wrap message in. Default is 'p'. Set to empty string or false for no wrap.
 * **type** *string* One of 'success', 'error', warning', 'info'. Default is 'error'.
 * **user_ids** *array* Array of user ids or user roles for whom message should be displayed. For example:
-`array( 3, 'administrator', 55, 153, 'editors' )` will set the message for users with ids of 3, 55 and 153, and for all users that are
+`array( 3, 'administrator', 55, 153, 'editor' )` will set the message for users with ids of 3, 55 and 153, and for all users that are
 administrators or editors. Default is current user id.
 * **screen_ids** *array* Array of screen ids on which message should be displayed. Set to empty array for all screens. If during testing
 the notice is set on a screen that is then not viewed because of a redirect (e.g. options), changing the screen in the notice args will
