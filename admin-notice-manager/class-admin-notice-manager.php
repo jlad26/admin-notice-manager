@@ -1211,10 +1211,10 @@ class Plugin_Admin_Notice_Manager {
 	 * Remove opt out dismissals from a user.
 	 *
 	 * @module	Optional helper methods
-	 * @param		int		$user_id		User ID from whom to remove dismissals. Set to 0 for all users.
 	 * @param		array	$notice_ids		Array of notice ids to remove
+	 * @param		int		$user_id		User ID from whom to remove dismissals. Set to 0 for all users.
 	 */
-	public static function remove_opt_out_dismissals( $user_id = 0, array $notice_ids ) {
+	public static function remove_opt_out_dismissals( array $notice_ids, $user_id = 0 ) {
 		
 		if ( ! empty( $notice_ids ) ) {
 			
